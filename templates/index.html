@@ -41,7 +41,7 @@
                 <h2>Введение</h2>
                 <div class="illustration">
                     <img src="https://myslide.ru/documents_7/dd86a15effbaf05dc8e9fcf0b1987c23/img12.jpg" alt="Схема меднопорфирового месторождения" class="thumbnail">
-                    <figcaption>Рис. 1. Обобщенная схема меднопорфировой системы (источник: Wikimedia Commons)</figcaption>
+                    <figcaption>Рис. 1. Обобщенная схема меднопорфировой системы</figcaption>
                 </div>
                 <p>Меднопорфировые системы вмещают часть наиболее широко распространенных типов оруденения на конвергентных границах плит. Эти системы включают:</p>
                 <ul>
@@ -71,7 +71,7 @@
                     <div class="two-columns">
                         <div class="column">
                             <img src="https://avatars.mds.yandex.net/i?id=161159e1973ff55d78b9f240b9b425e0_l-5319549-images-thumbs&n=13" alt="Типы меднопорфировых месторождений" class="thumbnail">
-                            <figcaption>Рис. 2. Основные типы меднопорфировых месторождений (источник: geology.com)</figcaption>
+                            <figcaption>Рис. 2. Основные типы меднопорфировых месторождений</figcaption>
                         </div>
                         <div class="column">
                             <img src="https://s1.showslide.ru/s_slide/58d8932520f83f29b50a0f07904b8b75/5e9c7c9d-0142-4793-9a12-7170023c062c.jpeg" alt="Халькопирит - основной рудный минерал" class="thumbnail">
@@ -85,20 +85,24 @@
                 <h2>Региональные характеристики</h2>
                 <h3>Пространственное распределение</h3>
                 <div class="illustration">
-                    <img src="https://github.com/victornsuprenov/porphyry-systems/blob/main/image/image.png?raw=true" alt="Глобальное распределение меднопорфировых поясов" class="thumbnail">
-                    <figcaption>Рис. 4. Глобальное распределение меднопорфировых поясов (источник: Wikimedia Commons)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image4.png') }}" alt="Глобальное распределение меднопорфировых поясов" class="thumbnail">
+                    <figcaption>Рис. 4. Глобальное распределение меднопорфировых поясов</figcaption>
                 </div>
-                <p>Системы приурочены к линейным поясам...</p>
+                <p>Системы приурочены к линейным поясам</p>
                 
                 <h3>Тектоническая позиция</h3>
-                <p>Формируются преимущественно в обстановках сжатия...</p>
+                <p>Тектоническая позиция медно-порфировых месторождений — это расположение объектов в рудных районах, связанное с особенностями структурно-тектонической обстановки. 
+                    Выделяются, например:
+                    В пределах крупных батолитообразных плутонов — месторождения чаще расположены в периферических, реже центральных зонах батолитов.
+                    В зоне ближнего экзоконтакта плутонов — месторождения локализуются в компенсационных грабенах, выполненных комагматичными вулканитами.
+                    В зонах глубинных разломов на флангах региональных палеоподнятий — контролируют ареалы распространения штокообразных интрузивных массивов.</p>
                 
                 <h3>Структурный контроль</h3>
                 <figure class="illustration">
-                    <img src="https://geology.com/articles/porphyry-copper/porphyry-copper-tectonic.jpg" alt="Тектоническая позиция месторождений" class="thumbnail">
-                    <figcaption>Рис. 5. Тектоническая позиция меднопорфировых месторождений (источник: geology.com)</figcaption>
+                    <img src= "{{ url_for('static', filename='image/image5.png') }}" alt="Тектоническая позиция месторождений" class="thumbnail">
+                    <figcaption>Рис. 5. Схема строения Биргильдинско-Томинского меднопорфирового рудного района (Урал).</figcaption>
                 </figure>
-                <p>Разломы и их пересечения контролируют положение систем...</p>
+                <p>Разломы и их пересечения контролируют положение систем</p>
             </section>
 
             <section id="deposits">
@@ -106,7 +110,7 @@
     <h3>Порфировые штоки</h3>
     <div class="illustration">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bingham_Canyon_mine_2016.jpg" alt="Карьер Бингем-Каньон" class="thumbnail">
-        <figcaption>Рис. 6. Карьер Бингем-Каньон - классическое меднопорфировое месторождение (источник: Wikimedia Commons)</figcaption>
+        <figcaption>Рис. 6. Карьер Бингем-Каньон - классическое меднопорфировое месторождение</figcaption>
     </div>
     <p>Меднопорфировые месторождения приурочены к порфировым интрузиям диаметром до 1 км. Вертикальный размах оруденения достигает 2-4 км. Интрузии многофазны, состав варьирует от диоритов до гранитов.</p>
     
@@ -114,13 +118,11 @@
     <div class="illustration">
         <div class="two-columns">
             <div class="column">
-                <img src="https://geology.com/minerals/photos/bornite-167.jpg" 
-                     alt="Борнит" 
-                     class="thumbnail">
+                <img src="{{ url_for('static', filename='image/image7.jpg') }}" alt="Борнит" class="thumbnail">
                 <figcaption>Рис. 7. Борнит - важный рудный минерал медных месторождений</figcaption>
             </div>
             <div class="column">
-                <img src="https://geology.com/minerals/photos/molybdenite-173.jpg" alt="Молибденит" class="thumbnail">
+                <img src="{{ url_for('static', filename='image/image8.jpg') }}" alt="Молибденит" class="thumbnail">
                 <figcaption>Рис. 8. Молибденит - характерный минерал молибденовых месторождений</figcaption>
             </div>
         </div>
@@ -136,10 +138,11 @@
             </section>
 
             <section id="alteration">
-                <h2>Метасоматические изменения</h2>
+                <h2>Метасоматическая зональность</h2>
+                <p>Зональность метасоматических изменений (метасоматическая зональность) — это пространственная закономерная последовательность расположения пород, сформировавшаяся в результате метасоматоза — процесса преобразования горных пород под воздействием водных растворов (флюидов).</p>
                 <div class="illustration">
-                    <img src="https://geology.com/articles/porphyry-copper/porphyry-copper-alteration.jpg" alt="Зональность метасоматических изменений" class="thumbnail">
-                    <figcaption>Рис. 9. Зональность метасоматических изменений (источник: geology.com)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image9.jpg') }}" alt="Зональность метасоматических изменений" class="thumbnail">
+                    <figcaption>Рис. 9. Зональность метасоматических изменений</figcaption>
                 </div>
                 <p>Характерна концентрическая зональность изменений:</p>
                 <ol>
@@ -148,27 +151,26 @@
                     <li>Серицитовые (филлизитовые) изменения</li>
                     <li>Продвинутые аргиллизиты (вторичные кварциты)</li>
                 </ol>
-                <p>Зональность отражает понижение температуры от >700°C до <250°C. Каждый тип изменений характеризуется специфическими минеральными ассоциациями.</p>
-                
+                <p>Зональность отражает понижение температуры от 700°C до 250°C. Каждый тип изменений характеризуется специфическими минеральными ассоциациями.</p>
                 <div class="illustration">
                     <div class="two-columns">
                         <div class="column">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Biotite_-_Otter_Lake%2C_Quebec.jpg/800px-Biotite_-_Otter_Lake%2C_Quebec.jpg" alt="Биотит" class="thumbnail">
-                            <figcaption>Рис. 10. Биотит - характерный минерал калиевых изменений (источник: Wikimedia Commons)</figcaption>
+                            <img src="{{ url_for('static', filename='image/image10.jpg') }}" alt="Биотит" class="thumbnail">
+                            <figcaption>Рис. 10. Биотит - характерный минерал калиевых изменений</figcaption>
                         </div>
                         <div class="column">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sericite_in_quartz_%28Butte%2C_Montana%2C_USA%29_1_%2831706890200%29.jpg/800px-Sericite_in_quartz_%28Butte%2C_Montana%2C_USA%29_1_%2831706890200%29.jpg" alt="Серицит" class="thumbnail">
-                            <figcaption>Рис. 11. Серицит - основной минерал филлизитовых изменений (источник: Wikimedia Commons)</figcaption>
+                            <img src="{{ url_for('static', filename='image/image11.jpg') }}" alt="Серицит" class="thumbnail">
+                            <figcaption>Рис. 11. Серицит - основной минерал филлизитовых изменений</figcaption>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="genesis">
-                <h2>Генетическая модель</h2>
+                <h2>Геолоическая модель</h2>
                 <div class="illustration">
-                    <img src="https://geology.com/articles/porphyry-copper/porphyry-copper-formation.jpg" alt="Генетическая модель" class="thumbnail">
-                    <figcaption>Рис. 12. Генетическая модель формирования меднопорфировых систем (источник: geology.com)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image12.png') }}" alt="Геолоическая модель" class="thumbnail">
+                    <figcaption>Рис. 12. Геолоическая модель формирования меднопорфировых систем</figcaption>
                 </div>
                 <h3>Источники рудообразования</h3>
                 <p>Системы формируются при участии:
@@ -181,19 +183,19 @@
                 
                 <h3>Стадии развития</h3>
                 <div class="illustration">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Porphyry_copper_deposit_formation.png/800px-Porphyry_copper_deposit_formation.png" alt="Стадии развития" class="thumbnail">
-                    <figcaption>Рис. 13. Стадии развития меднопорфировых систем (источник: Wikimedia Commons)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image13.png') }}" alt="Стадии развития" class="thumbnail">
+                    <figcaption>Рис. 13. Стадии развития меднопорфировых систем</figcaption>
                 </div>
                 <p>1. <strong>Ранняя стадия:</strong> Формирование калиевых метасоматитов и low-sulfidation mineralization при 700-350°C<br>
-                2. <strong>Поздняя стадия:</strong> Формирование серицитовых изменений и high-sulfidation mineralization при <350°C</p>
+                2. <strong>Поздняя стадия:</strong> Формирование серицитовых изменений и high-sulfidation mineralization при 350°C</p>
             </section>
 
             <section id="exploration">
                 <h2>Применение в геологоразведочных работах</h2>
-                <h3>Критерии поиска</h3>
+                <h3>Прогнозо-поисковая модель</h3>
                 <div class="illustration">
-                    <img src="https://geology.com/articles/porphyry-copper/porphyry-copper-exploration.jpg" alt="Критерии поиска" class="thumbnail">
-                    <figcaption>Рис. 14. Критерии поиска меднопорфировых месторождений (источник: geology.com)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image14.1.png') }}" alt="Критерии поиска (14.1)" class="thumbnail">
+                    <figcaption>Рис. 14.1. Прогнозо-поисковая модель меднопорфировых месторождений</figcaption>
                 </div>
                 <p>При поисках необходимо учитывать:
                     <ul>
@@ -203,18 +205,21 @@
                         <li>Группировку в кластеры и линейные зоны</li>
                     </ul>
                 </p>
-                
-                <h3>Эрозионный уровень</h3>
                 <div class="illustration">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Porphyry_copper_deposit_erosion.png/800px-Porphyry_copper_deposit_erosion.png" alt="Уровни эрозии" class="thumbnail">
-                    <figcaption>Рис. 15. Влияние уровня эрозии на сохранность элементов системы (источник: Wikimedia Commons)</figcaption>
+                    <img src="{{ url_for('static', filename='image/image14.2.png') }}" alt="Критерии поиска (14.2)" class="thumbnail">
+                    <figcaption>Рис. 14.2. Дополнительная прогнозо-поисковая модель меднопорфировых месторождений</figcaption>
                 </div>
-                <p>Определяет сохранившиеся типы месторождений:
-                    <ul>
-                        <li>Глубокая эрозия - порфировые месторождения</li>
-                        <li>Средняя эрозия - HS эпитермальные месторождения</li>
-                        <li>Слабая эрозия - литокапы без существенной минерализации</li>
-                    </ul>
+                
+                <h3>Магнитные аномалии</h3>
+                <div class="illustration">
+                    <img src="{{ url_for('static', filename='image/image12.png') }}" alt="Уровни эрозии" class="thumbnail">
+                    <figcaption>Рис. 15. Аэромагнитные аномалии над порфировыми месторождениями Silver Bell в Аризоне</figcaption>
+                </div>
+                <p>Магнитные аномалии используются для определения характеристик порфировых
+                    месторождений во всем мире. Основным контролем магнитных свойств вмещающих пород и
+                    магматических интрузий является разделение железа между оксидами и силикатами, хотя
+                    сульфидные минералы, связанные с гидротермальными изменениями, также представляют
+                    собой фундаментальные, локализованные геофизические цели.
                 </p>
             </section>
         </main>

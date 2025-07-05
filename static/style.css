@@ -1,3 +1,63 @@
+/* ===================== */
+/*  Адаптивная вёрстка   */
+/* ===================== */
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        padding: 0 5px;
+    }
+    nav {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    main {
+        width: 100%;
+    }
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .auth-buttons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+    .two-columns {
+        flex-direction: column;
+    }
+    .column {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    img.thumbnail, .modal-content {
+        max-width: 100%;
+        height: auto;
+    }
+    .illustration {
+        margin: 0 auto 1em auto;
+    }
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    nav h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+    nav h2 {
+        font-size: 1rem;
+    }
+    .container {
+        padding: 0 2px;
+    }
+}
 /* --- Стили info.html --- */
 
 
