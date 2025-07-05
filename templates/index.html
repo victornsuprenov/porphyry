@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Р. Силлитоу - Меднопорфировые системы</title>
     <!-- Стили перенесены в style.css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
         <div class="header-row">
             <div class="header-links">
-                <a href="contacts.html">Контакты</a>
-                <a href="info.html">О проекте</a>
+                <a href="{{ url_for('contacts') }}">Контакты</a>
+                <a href="{{ url_for('info') }}">О проекте</a>
             </div>
             <div class="auth-buttons">
-                <a href="register.html" class="btn">Зарегистрироваться</a>
-                <a href="register.html?action=login" class="btn">Войти</a>
+                <a href="{{ url_for('register') }}" class="btn">Зарегистрироваться</a>
+                <a href="{{ url_for('register') }}?action=login" class="btn">Войти</a>
             </div>
         </div>
         <h1 style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; margin: 0.5em 0 0.2em 0;">Меднопорфировые системы</h1>
@@ -224,6 +224,6 @@
     <p>© 2023 | Материалы по книге Р. Силлитоу "Меднопорфировые системы" (Перевод К.И. Воскресенский)</p>
     <p>Econ. Geology, 2010, v.105, pp.3-41</p>
     </footer>
-   <script src="js/image-modal.js"></script>
+   <script src="{{ url_for('static', filename='js/image-modal.js') }}"></script>
 </body>
 </html>

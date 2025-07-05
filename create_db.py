@@ -15,11 +15,6 @@ CREATE TABLE IF NOT EXISTS users (
 )
 ''')
 
-# Пример добавления тестового пользователя
-cursor.execute('''
-INSERT INTO users (username, email, password) 
-VALUES (?, ?, ?)
-''', ('admin', 'admin@example.com', generate_password_hash('admin123')))
-
 conn.commit()
 conn.close()
+print('База данных и таблица users успешно созданы.')

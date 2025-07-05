@@ -163,14 +163,30 @@
                     body: JSON.stringify(data),
                 });
 
-                const result = await response.json();
+                let result = {};
+                try {
+                    result = await response.json();
+                } catch (jsonErr) {
+                    // Если не удалось распарсить JSON, покажем общую ошибку
+                    errorMessage.textContent = 'Ошибка сервера';
+                    console.error('Ошибка парсинга JSON:', jsonErr);
+                    return;
+                }
+
+                // Логируем ответ сервера для отладки
+                console.log('Ответ сервера:', response.status, result);
+
                 if (response.ok) {
-                    window.location.href = 'index.html'; // Перенаправление после успеха
+                    errorMessage.textContent = isLogin ? 'Успешный вход!' : 'Пользователь создан!';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 700);
                 } else {
                     errorMessage.textContent = result.message || 'Ошибка';
                 }
             } catch (err) {
                 errorMessage.textContent = 'Ошибка соединения';
+                console.error('Ошибка соединения:', err);
             }
         });
     </script>

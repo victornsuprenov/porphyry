@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <div class="header-links">
+                <a href="/">На главную</a>
+                <a href="/info">О проекте</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="/register" class="btn">Зарегистрироваться</a>
+                <a href="/register?action=login" class="btn">Войти</a>
+            </div>
+        </div>
+        <h1 style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; margin: 0.5em 0 0.2em 0;">Контакты</h1>
+    </header>
+    <div class="container">
+        <main>
+            <section class="info-section">
+                <h2>Контактная информация</h2>
+                <div class="contact-item">
+                    <h3>Автор перевода</h3>
+                    <p>К.И. Воскресенский</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>example@email.com</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2023 | Материалы по книге Р. Силлитоу "Меднопорфировые системы" (Перевод К.И. Воскресенский)</p>
+        <p>Econ. Geology, 2010, v.105, pp.3-41</p>
+    </footer>
+</body>
+</html>

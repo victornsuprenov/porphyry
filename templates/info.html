@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о проекте перевода статьи 'Меднопорфировые системы'">
+    <title>Информация о проекте</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <div class="header-links">
+                <a href="/">На главную</a>
+                <a href="/contacts">Контакты</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="/register" class="btn">Зарегистрироваться</a>
+                <a href="/register?action=login" class="btn">Войти</a>
+            </div>
+        </div>
+        <h1 style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; margin: 0.5em 0 0.2em 0;">О проекте</h1>
+    </header>
+    <div class="container">
+        <main>
+            <section class="info-section">
+                <h2>О статье</h2>
+                <p>Данный проект представляет собой перевод фундаментальной работы Ричарда Силлитоу "Меднопорфировые системы", опубликованной в журнале Economic Geology в 2010 году.</p>
+                <div class="highlight">
+                    <p><strong>Оригинальное название:</strong> Porphyry Copper Systems</p>
+                    <p><strong>Автор:</strong> Richard H. Sillitoe</p>
+                    <p><strong>Год публикации:</strong> 2010</p>
+                    <p><strong>Журнал:</strong> Economic Geology, Volume 105, pages 3-41</p>
+                </div>
+            </section>
+            <section class="info-section">
+                <h2>Цель перевода</h2>
+                <p>Основные цели проекта:</p>
+                <ul>
+                    <li>Сделать доступной важную научную информацию для русскоязычных геологов</li>
+                    <li>Создать структурированный цифровой ресурс по меднопорфировым системам</li>
+                    <li>Обеспечить наглядность материала через иллюстрации и схемы</li>
+                    <li>Адаптировать терминологию для российских геологических школ</li>
+                </ul>
+            </section>
+            <section class="info-section">
+                <h2>Методология</h2>
+                <h3>Перевод</h3>
+                <p>Перевод выполнен с сохранением научной точности оригинального текста. Особое внимание уделено:</p>
+                <ul>
+                    <li>Корректному переводу специальных геологических терминов</li>
+                    <li>Сохранению структуры и логики изложения</li>
+                    <li>Адаптации примеров для лучшего понимания в российском контексте</li>
+                </ul>
+                <h3>Визуализация</h3>
+                <p>Все иллюстрации подобраны для соответствия содержанию статьи. Использованы:</p>
+                <ul>
+                    <li>Открытые источники</li>
+                    <li>Авторские схемы</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>© 2023 | Материалы по книге Р. Силлитоу "Меднопорфировые системы" (Перевод К.И. Воскресенский)</p>
+        <p>Econ. Geology, 2010, v.105, pp.3-41</p>
+    </footer>
+</body>
+</html>
