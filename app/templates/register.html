@@ -91,54 +91,118 @@
 </head>
 <body>
     <div class="auth-container">
-        <h1 id="form-title">Регистрация</h1>
-        <form id="auth-form">
-            <div class="form-group">
-                <label for="username">Имя пользователя</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group" id="email-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="button-row">
-                <button type="submit" id="submit-btn">Зарегистрироваться</button>
-                <button type="button" id="switch-btn">Войти</button>
-            </div>
-        </form>
-        <!-- Кнопки теперь в .button-row -->
-        <div id="error-message" class="error"></div>
+    <h1 id="form-title">Регистрация</h1>
+    <form id="auth-form">
+        <div class="form-group">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group" id="email-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="button-row">
+            <button type="submit" id="submit-btn">Зарегистрироваться</button>
+            <button type="button" id="switch-btn">Войти</button>
+        </div>
+    </form>
+        <div id="message" class="error"></div>
     </div>
 
     <script>
-        // Определяем, это форма входа или регистрации
-        const urlParams = new URLSearchParams(window.location.search);
-        let isLogin = urlParams.get('action') === 'login';
+    document.addEventListener('DOMContentLoaded', function() {
+    // Получаем элементы только после загрузки DOM
+    const elements = {
+        formTitle: document.getElementById('form-title'),
+        submitBtn: document.getElementById('submit-btn'),
+        switchBtn: document.getElementById('switch-btn'),
+        emailGroup: document.getElementById('email-group'),
+        authForm: document.getElementById('auth-form'),
+        messageDiv: document.getElementById('message'),
+        usernameInput: document.getElementById('username'),
+        passwordInput: document.getElementById('password'),
+        emailInput: document.getElementById('email')
+    };
 
-        const formTitle = document.getElementById('form-title');
-        const submitBtn = document.getElementById('submit-btn');
-        const switchBtn = document.getElementById('switch-btn');
-        const emailGroup = document.getElementById('email-group');
-        const authForm = document.getElementById('auth-form');
-        const errorMessage = document.getElementById('error-message');
-
-        function updateForm() {
-            if (isLogin) {
-                formTitle.textContent = 'Вход';
-                submitBtn.textContent = 'Войти';
-                switchBtn.textContent = 'Зарегистрироваться';
-                emailGroup.style.display = 'none';
-            } else {
-                formTitle.textContent = 'Регистрация';
-                submitBtn.textContent = 'Зарегистрироваться';
-                switchBtn.textContent = 'Войти';
-                emailGroup.style.display = '';
-            }
+    // Проверяем, что все элементы найдены
+    for (const [key, element] of Object.entries(elements)) {
+        if (!element) {
+            console.error(`Элемент ${key} не найден!`);
+            return;
         }
+    }
+
+    let isLogin = new URLSearchParams(window.location.search).get('action') === 'login';
+
+    function updateForm() {
+        if (isLogin) {
+            elements.formTitle.textContent = 'Вход';
+            elements.submitBtn.textContent = 'Войти';
+            elements.switchBtn.textContent = 'Зарегистрироваться';
+            elements.emailGroup.style.display = 'none';
+            elements.emailInput.removeAttribute('required');
+        } else {
+            elements.formTitle.textContent = 'Регистрация';
+            elements.submitBtn.textContent = 'Зарегистрироваться';
+            elements.switchBtn.textContent = 'Войти';
+            elements.emailGroup.style.display = '';
+            elements.emailInput.setAttribute('required', '');
+        }
+    }
+
+    elements.switchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        isLogin = !isLogin;
+        updateForm();
+        elements.messageDiv.textContent = '';
+        elements.messageDiv.className = 'error';
+    });
+
+    elements.authForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        elements.messageDiv.textContent = '';
+        elements.messageDiv.className = 'error';
+
+        const formData = {
+            username: elements.usernameInput.value,
+            password: elements.passwordInput.value
+        };
+
+        if (!isLogin) {
+            formData.email = elements.emailInput.value;
+        }
+
+        try {
+            const response = await fetch(isLogin ? '/login' : '/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                elements.messageDiv.textContent = result.message;
+                elements.messageDiv.className = 'success';
+                setTimeout(() => window.location.href = '/', 1000);
+            } else {
+                elements.messageDiv.textContent = result.message || 'Ошибка';
+                elements.messageDiv.className = 'error';
+            }
+        } catch (err) {
+            elements.messageDiv.textContent = 'Ошибка соединения';
+            elements.messageDiv.className = 'error';
+            console.error('Ошибка:', err);
+        }
+        });
+
+    
 
         updateForm();
 
@@ -146,49 +210,55 @@
             e.preventDefault();
             isLogin = !isLogin;
             updateForm();
-            errorMessage.textContent = '';
+            messageDiv.textContent = '';
+            messageDiv.className = 'error';
         });
 
         authForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const formData = new FormData(authForm);
-            const data = Object.fromEntries(formData.entries());
+            messageDiv.textContent = '';
+            messageDiv.className = 'error';
+
+            // Собираем данные формы
+            const formData = {
+                username: usernameInput.value,
+                password: passwordInput.value
+            };
+
+            // Добавляем email только для регистрации
+            if (!isLogin) {
+                formData.email = emailInput.value;
+            }
 
             try {
-                const response = await fetch(isLogin ? '/login' : '/register', {
+                const endpoint = isLogin ? '/login' : '/register';
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(formData),
                 });
 
-                let result = {};
-                try {
-                    result = await response.json();
-                } catch (jsonErr) {
-                    // Если не удалось распарсить JSON, покажем общую ошибку
-                    errorMessage.textContent = 'Ошибка сервера';
-                    console.error('Ошибка парсинга JSON:', jsonErr);
-                    return;
-                }
-
-                // Логируем ответ сервера для отладки
-                console.log('Ответ сервера:', response.status, result);
+                const result = await response.json();
 
                 if (response.ok) {
-                    errorMessage.textContent = isLogin ? 'Успешный вход!' : 'Пользователь создан!';
+                    messageDiv.textContent = result.message;
+                    messageDiv.className = 'success';
                     setTimeout(() => {
                         window.location.href = '/';
-                    }, 700);
+                    }, 1000);
                 } else {
-                    errorMessage.textContent = result.message || 'Ошибка';
+                    messageDiv.textContent = result.message || 'Ошибка';
+                    messageDiv.className = 'error';
                 }
             } catch (err) {
-                errorMessage.textContent = 'Ошибка соединения';
-                console.error('Ошибка соединения:', err);
+                messageDiv.textContent = 'Ошибка соединения с сервером';
+                messageDiv.className = 'error';
+                console.error('Ошибка:', err);
             }
         });
+    });
     </script>
 </body>
 </html>
